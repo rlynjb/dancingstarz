@@ -17,8 +17,8 @@
         </q-btn>
 
         <q-toolbar-title>
-          Quasar App
-          <div slot="subtitle">Running on Quasar v{{ $q.version }}</div>
+          Dancing Starz
+          <div slot="subtitle">Cafe, Karaoke, Bar</div>
         </q-toolbar-title>
       </q-toolbar>
     </q-layout-header>
@@ -69,7 +69,7 @@ export default {
   name: 'MyLayout',
   data () {
     return {
-      leftDrawerOpen: this.$q.platform.is.desktop
+      leftDrawerOpen: false
     }
   },
   methods: {
