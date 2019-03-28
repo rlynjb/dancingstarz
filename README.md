@@ -1,1 +1,3 @@
-# dancingstarz
+# Quasar App
+
+> WIP
