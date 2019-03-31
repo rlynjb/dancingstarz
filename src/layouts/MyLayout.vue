@@ -80,7 +80,5 @@ export default {
 
 <style lang="styl">
 
-.logo
-  width: 3em
 
 </style>

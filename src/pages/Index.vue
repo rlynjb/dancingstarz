@@ -12,7 +12,7 @@
 					</header>
 
 					<div class="content q-mb-xl">
-						<span>Dancing Ballroom</span>
+						<span>Dance Ballroom</span>
 						<b>&#9830;</b>
 						<span>Karaoke</span>
 						<b>&#9830;</b>
@@ -167,7 +167,7 @@
 						<section>
 							<div class="contact-method q-pa-xl">
 								<h5>
-									<span class="icon alt fas fa-home"></span>
+									<span class="icon alt fas fa-map"></span>
 									Address
 								</h5>
 								<span>1234 Somewhere Road #5432<br />
@@ -233,9 +233,12 @@ a
 	color: #fff
 	text-decoration: none
 
-header
+header.q-layout-header
+	box-shadow: none
 	.q-toolbar
 		background: $bg !important
+		.logo
+			width: 3em
 
 #banner
 	background-color: $bg
