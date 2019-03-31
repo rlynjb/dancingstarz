@@ -126,8 +126,8 @@
 				<div class="inner row">
 					<section class="col-7 q-pa-xl">
 						<h5>
-							<span class="icon alt fas fa-envelope"></span>
-							Email
+							<q-icon class="icon" name="comment" />
+							Contact
 						</h5>
 						<div class="row gutter-lg">
 							<q-field class="col-12">
