@@ -1,3 +1,78 @@
 // app global css
 
 
+// Font.
+$family = 'Source Sans Pro', Helvetica, sans-serif
+$family-fixed = 'Courier New', monospace
+
+// Palette.
+$bg =	#242943
+$bg-alt =	#2a2f4a
+$fg	= #ffffff
+$fg-bold = #ffffff
+$fg-light = rgba(244,244,255,0.2)
+$border = rgba(212,212,255,0.1)
+$border-bg = rgba(212,212,255,0.035)
+$highlight = #9bf1ff
+$accent1 = #6fc3df
+$accent2 = #8d82c4
+$accent3 = #ec8d81
+$accent4 = #e7b788
+$accent5 = #8ea9e8
+$accent6 = #87c5a4
+
+
+body
+	color: #fff
+	font-family: $family
+
+a
+	color: #fff
+	text-decoration: none
+
+header
+	.q-toolbar
+		background: $bg !important
+
+#banner
+	background-color: $bg
+	position: relative
+	height: 40em
+
+	.banner-bg-overlay
+		background-image: url('../assets/bannergettyimage.jpg')
+		width: 100%
+		height: 100%
+		position: absolute
+		opacity: 0.1
+
+	.inner
+		position: absolute
+		z-index: 1
+
+	.major
+		.formerly-known
+			font-size: 1.5em
+			margin-top: -3em
+
+	.content
+		> span
+			margin: 0 1em
+		> b
+			color: gray
+
+#main
+	background-color: $bg-alt
+
+#contact
+	border-bottom: solid 1px $border
+	overflow-x: hidden
+	background-color: $bg
+
+	.split
+		border-left: 1px solid $border
+		> section
+			border-bottom: 1px solid $border
+
+#footer
+	background-color: $bg

@@ -12,10 +12,10 @@ module.exports = function (ctx) {
     ],
     extras: [
       ctx.theme.mat ? 'roboto-font' : null,
-      'material-icons' // optional, you are not bound to it
+      'material-icons', // optional, you are not bound to it
       // 'ionicons',
       // 'mdi',
-      // 'fontawesome'
+      'fontawesome'
     ],
     supportIE: false,
     build: {
@@ -33,8 +33,8 @@ module.exports = function (ctx) {
       // port: 8080,
       open: true // opens browser window automatically
     },
-    // framework: 'all' --- includes everything; for dev only!
-    framework: {
+    framework: 'all',
+    /*framework: {
       components: [
         'QLayout',
         'QLayoutHeader',
@@ -60,7 +60,7 @@ module.exports = function (ctx) {
       ]
       // iconSet: ctx.theme.mat ? 'material-icons' : 'ionicons'
       // i18n: 'de' // Quasar language
-    },
+    },*/
     // animations: 'all' --- includes all animations
     animations: [],
     ssr: {

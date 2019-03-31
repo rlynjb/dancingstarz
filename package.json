@@ -2,7 +2,7 @@
   "name": "dancingstarz",
   "version": "0.0.1",
   "description": "A Quasar Framework app",
-  "productName": "Quasar App",
+  "productName": "Dancing Starz",
   "cordovaId": "org.cordova.quasar.app",
   "author": "rlynjb@gmail.com",
   "private": true,
