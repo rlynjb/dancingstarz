@@ -48,8 +48,8 @@
 						</header>
 					</article>
 
-					<article class="col-5 q-pa-xl block-content" style="background-image:url('assets/pic01.jpg')">
-						<header class="major">
+					<article class="col-5 block-content" style="background-image:url('assets/pic01.jpg')">
+						<header class="major q-pa-xl">
 							<h3>
 								<a href="landing.html" class="link">
 									<b>&#9830;</b>
@@ -58,6 +58,8 @@
 							</h3>
 							<p>get photos from tita tinas/dj mike lim facebook profile</p>
 						</header>
+
+						<photos />
 					</article>
 
 					<article class="col-5 q-pa-xl block-content" style="background-image:url('assets/pic04.jpg')">
@@ -120,14 +122,8 @@
 								Events
 							</h3>
 						</header>
-						<p>
-						get events from https://www.facebook.com/events/2623128811092922/<br>
-						Di's Night is every first friday of the month<br>
-						Special events every last friday of the month<br>
-						Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
-						<ul class="actions">
-							<li><a href="landing.html" class="button next">Get Started</a></li>
-						</ul>
+
+						<events />
 					</div>
 				</section>
 
@@ -210,6 +206,27 @@
 		</div>
 </q-page>
 </template>
+
+<script>
+import photos from 'components/photos'
+import events from 'components/events'
+
+export default {
+  name: 'PageIndex',
+  components: {
+  	photos,
+  	events
+  },
+  data() {
+  	return {
+  		contact: {
+  			name: '',
+  			email: '',
+  		}
+  	}
+  }
+}
+</script>
 
 <style lang="styl">
 @import '~variables'
@@ -302,13 +319,19 @@ header.q-layout-header
 	background-color: $bg-alt
 
 	.block-content
+		background-size: cover
 		header
 			h3
 				font-family: $font6
 				font-size: 2em
+				margin-top: 0
 				b
 					color: $primary
 					font-size: 0.9em
+
+		.photos-container
+			width: 100%
+			height: 100%
 
 #contact
 	border-bottom: solid 1px $border
@@ -339,17 +362,3 @@ header.q-layout-header
 
 
 </style>
-
-<script>
-export default {
-  name: 'PageIndex',
-  data() {
-  	return {
-  		contact: {
-  			name: '',
-  			email: '',
-  		}
-  	}
-  }
-}
-</script>
