@@ -7,16 +7,18 @@
 			<section id="banner" class="major row">
 				<div class="inner text-center full-width q-pa-xl">
 					<header class="major q-mb-xl">
-						<h1><span>D</span>ancing <span>Starz</span></h1>
+						<h1><span>D</span>ance <span>Starz</span> Cafe</h1>
 						<p class="formerly-known">formerly known as <b>Bropards</b></p>
 					</header>
 
 					<div class="content q-mb-xl">
-						<span>Dance Ballroom</span>
+						<span>Ballroom Dancing</span>
 						<b>&#9830;</b>
 						<span>Karaoke</span>
 						<b>&#9830;</b>
 						<span>Rental Special Events</span>
+						<b>&#9830;</b>
+						<span>Dining</span>
 						<b>&#9830;</b>
 						<span>Serving Wine and Beer</span>
 					</div>
@@ -35,10 +37,14 @@
 						<header class="major">
 							<h3>
 								<a href="landing.html" class="link">
-									<b>&#9830;</b>Highlight Event
+									<b>&#9830;</b>
+									Highlight Event
 								</a>
 							</h3>
-							<p>Ipsum dolor sit amet</p>
+							<p>
+								Launch website on April 5th, get info of Tita elsie bday as highlight event<br>
+								with Bohol Song Bird and DJ Mike
+							</p>
 						</header>
 					</article>
 
@@ -50,7 +56,7 @@
 									Photos
 								</a>
 							</h3>
-							<p>feugiat amet tempus</p>
+							<p>get photos from tita tinas/dj mike lim facebook profile</p>
 						</header>
 					</article>
 
@@ -62,7 +68,7 @@
 									Videos
 								</a>
 							</h3>
-							<p>Lorem etiam nullam</p>
+							<p>get videos from tita tinas/dj mike lim facebook profile</p>
 						</header>
 					</article>
 
@@ -74,7 +80,9 @@
 									Featuring Bohol Song Bird
 								</a>
 							</h3>
-							<p>Nisl sed aliquam</p>
+							<p>
+								get info from facebook profile<br>
+								https://www.facebook.com/boholsongbirds</p>
 						</header>
 					</article>
 
@@ -83,10 +91,10 @@
 							<h3>
 								<a href="landing.html" class="link">
 									<b>&#9830;</b>
-									Everynight featuring DJ Jake or Mike
+									Everynight featuring DJ Jake, Mike, Edison
 								</a>
 							</h3>
-							<p>Ipsum dolor sit amet</p>
+							<p>Playing everynight! Only at Dance Starz Cafe.</p>
 						</header>
 					</article>
 
@@ -98,7 +106,7 @@
 									Food Menu
 								</a>
 							</h3>
-							<p>Feugiat amet tempus</p>
+							<p>get food menu from yelp</p>
 						</header>
 					</article>
 				</section>
@@ -112,7 +120,11 @@
 								Events
 							</h3>
 						</header>
-						<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
+						<p>
+						get events from https://www.facebook.com/events/2623128811092922/<br>
+						Di's Night is every first friday of the month<br>
+						Special events every last friday of the month<br>
+						Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
 						<ul class="actions">
 							<li><a href="landing.html" class="button next">Get Started</a></li>
 						</ul>
@@ -152,7 +164,7 @@
 									<span class="icon alt fas fa-envelope"></span>
 									Email
 								</h5>
-								<a href="#">information@untitled.tld</a>
+								<a href="#">dancestarzcafe@gmail.com</a>
 							</div>
 						</section>
 						<section>
@@ -161,7 +173,7 @@
 									<span class="icon alt fas fa-phone"></span>
 									Phone
 								</h5>
-								<span>(000) 000-0000 x12387</span>
+								<span>(702) 592-4785</span>
 							</div>
 						</section>
 						<section>
@@ -170,8 +182,8 @@
 									<span class="icon alt fas fa-map"></span>
 									Address
 								</h5>
-								<span>1234 Somewhere Road #5432<br />
-								Nashville, TN 00000<br />
+								<span>3399 S. Jones Blvd.<br />
+								Las Vegas, Nevada, 89146<br />
 								United States of America</span>
 							</div>
 						</section>
@@ -189,7 +201,7 @@
 						<a href="#" class="icon alt fab fa-youtube"><span class="label"></span></a>
 					</div>
 					<div class="copyright q-mt-xl">
-						&copy; Dancing Starz<br>
+						&copy; Dance Starz Cafe - 2019<br>
 						website by <a href="#">wandrr</a>
 					</div>
 				</div>
@@ -258,13 +270,22 @@ header.q-layout-header
 
 	.major
 		h1
-			text-shadow: 3px 3px 6px #000
+			// text-shadow: 3px 3px 6px #000
 			letter-spacing: 0px
+			font-size: 6em
+			background: -webkit-linear-gradient(#fff, $primary)
+			-webkit-background-clip: text
+			-webkit-text-fill-color: transparent
+			padding-top: 0.5em
+
 			span
 				color: $primary
+				font-size: 1.6em
+
 		.formerly-known
 			font-size: 1.1em
-			margin-top: -4em
+			margin-top: -3em
+
 			b
 				font-size: 1.3em
 
@@ -304,6 +325,7 @@ header.q-layout-header
 		margin: 1em 0
 		.icon
 			color: $primary
+			margin-right: 0.3em
 
 	input,
 	textarea
