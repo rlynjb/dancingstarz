@@ -1,15 +1,26 @@
 <template>
 <div class="events-container">
-	events list
+	<q-list no-border>
+		<q-item>
+			<q-item-side>
+				<img src="" />
+			</q-item-side>
 
-						<p>
-						get events from https://www.facebook.com/events/2623128811092922/<br>
-						Di's Night is every first friday of the month<br>
-						Special events every last friday of the month<br>
-						Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
-						<ul class="actions">
-							<li><a href="landing.html" class="button next">Get Started</a></li>
-						</ul>
+			<q-item-main>
+				<h5>Di's Night is every first friday of the month</h5>
+			</q-item-main>
+		</q-item>
+
+		<q-item>
+			<q-item-side>
+				<img src="" />
+			</q-item-side>
+
+			<q-item-main>
+				<h5>Special events every last friday of the month</h5>
+			</q-item-main>
+		</q-item>
+	</q-list>
 </div>
 </template>
 
@@ -24,5 +35,7 @@ export default {
 </script>
 
 <style lang="styl">
-
+.events-container
+	img
+		max-width: 10em
 </style>

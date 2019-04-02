@@ -36,29 +36,20 @@
 					<article class="col-7 q-pa-xl block-content" style="background-image:url('assets/pic02.jpg')">
 						<header class="major">
 							<h3>
-								<a href="landing.html" class="link">
-									<b>&#9830;</b>
-									Highlight Event
-								</a>
+								<b>&#9830;</b>
+								Highlight Event
 							</h3>
-							<p>
-								Launch website on April 5th, get info of Tita elsie bday as highlight event<br>
-								with Bohol Song Bird and DJ Mike
-							</p>
 						</header>
+						<highlight-events />
 					</article>
 
 					<article class="col-5 block-content" style="background-image:url('assets/pic01.jpg')">
 						<header class="major q-pa-xl">
 							<h3>
-								<a href="landing.html" class="link">
-									<b>&#9830;</b>
-									Photos
-								</a>
+								<b>&#9830;</b>
+								Photos
 							</h3>
-							<p>get photos from tita tinas/dj mike lim facebook profile</p>
 						</header>
-
 						<photos />
 					</article>
 
@@ -70,22 +61,20 @@
 									Videos
 								</a>
 							</h3>
-							<p>get videos from tita tinas/dj mike lim facebook profile</p>
 						</header>
+						<videos />
 					</article>
 
 					<article class="col-7 q-pa-xl block-content" style="background-image:url('assets/pic03.jpg')">
 						<header class="major">
 							<h3>
-								<a href="landing.html" class="link">
+								<a href="https://www.facebook.com/boholsongbirds/" class="link">
 									<b>&#9830;</b>
 									Featuring Bohol Song Bird
 								</a>
 							</h3>
-							<p>
-								get info from facebook profile<br>
-								https://www.facebook.com/boholsongbirds</p>
 						</header>
+						<featured-band />
 					</article>
 
 					<article class="col-7 q-pa-xl block-content" style="background-image:url('assets/pic06.jpg')">
@@ -96,8 +85,8 @@
 									Everynight featuring DJ Jake, Mike, Edison
 								</a>
 							</h3>
-							<p>Playing everynight! Only at Dance Starz Cafe.</p>
 						</header>
+						<featured-dj />
 					</article>
 
 					<article class="col-5 q-pa-xl block-content" style="background-image:url('assets/pic05.jpg')">
@@ -108,7 +97,8 @@
 									Food Menu
 								</a>
 							</h3>
-							<p>get food menu from yelp</p>
+							<img src="" />
+							<q-btn color="primary" icon="fab fa-yelp">https://www.yelp.com/biz/bropards-las-vegas-2</q-btn>
 						</header>
 					</article>
 				</section>
@@ -191,10 +181,18 @@
 			<footer id="footer">
 				<div class="inner q-pt-xl q-pb-lg text-center">
 					<div class="icons">
-						<a href="#" class="icon alt fab fa-twitter"><span class="label"></span></a>
+						<a href="https://www.yelp.com/biz/bropards-las-vegas-2" 
+							target="_blank" class="icon alt fab fa-yelp">
+							<span class="label"></span>
+						</a>
 						<a href="#" class="icon alt fab fa-facebook"><span class="label"></span></a>
+						<!--
 						<a href="#" class="icon alt fab fa-instagram"><span class="label"></span></a>
-						<a href="#" class="icon alt fab fa-youtube"><span class="label"></span></a>
+						-->
+						<a href="https://www.youtube.com/channel/UCd0V4RYqcs0oBYYxliIysAQ?view_as=public" 
+							target="_blank" class="icon alt fab fa-youtube">
+							<span class="label"></span>
+						</a>
 					</div>
 					<div class="copyright q-mt-xl">
 						&copy; Dance Starz Cafe - 2019<br>
@@ -210,12 +208,20 @@
 <script>
 import photos from 'components/photos'
 import events from 'components/events'
+import highlightEvents from 'components/highlight_events'
+import featuredBand from 'components/featured_band'
+import featuredDj from 'components/featured_dj'
+import videos from 'components/videos'
 
 export default {
   name: 'PageIndex',
   components: {
   	photos,
-  	events
+  	events,
+  	highlightEvents,
+  	featuredBand,
+  	featuredDj,
+  	videos,
   },
   data() {
   	return {
