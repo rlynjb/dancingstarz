@@ -2,7 +2,7 @@
 <div class="highlight-events-container">
 	<q-item>
 		<q-item-side>
-			<img src="assets/highlight-events/elsies-bday.jpg" />
+			<img src="statics/highlight-events/elsies-bday.jpg" />
 		</q-item-side>
 
 		<q-item-main>

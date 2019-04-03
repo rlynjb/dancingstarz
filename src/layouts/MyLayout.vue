@@ -17,11 +17,6 @@
         -->
 
         <q-toolbar-title class="text-center">
-        <!--
-          <span class="logo-text">Dancing Starz Cafe</span>
-          
-          <img class="logo" src="assets/logo.png"/>
-          -->
         </q-toolbar-title>
       </q-toolbar>
     </q-layout-header>

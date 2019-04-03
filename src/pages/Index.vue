@@ -33,7 +33,7 @@
 
 				<!-- One -->
 				<section id="one" class="tiles row">
-					<article class="col-7 q-pa-xl block-content" style="background-image:url('assets/pic02.jpg')">
+					<article class="col-7 q-pa-xl block-content" style="background-image:url('statics/pic02.jpg')">
 						<header class="major">
 							<h3>
 								<b>&#9830;</b>
@@ -43,7 +43,7 @@
 						<highlight-events />
 					</article>
 
-					<article class="col-5 block-content" style="background-image:url('assets/pic01.jpg')">
+					<article class="col-5 block-content" style="background-image:url('statics/pic01.jpg')">
 						<header class="major q-pa-xl">
 							<h3>
 								<b>&#9830;</b>
@@ -53,7 +53,7 @@
 						<photos />
 					</article>
 
-					<article class="col-5 q-pa-xl block-content" style="background-image:url('assets/pic04.jpg')">
+					<article class="col-5 q-pa-xl block-content" style="background-image:url('statics/pic04.jpg')">
 						<header class="major">
 							<h3>
 								<a href="landing.html" class="link">
@@ -65,7 +65,7 @@
 						<videos />
 					</article>
 
-					<article class="col-7 q-pa-xl block-content" style="background-image:url('assets/pic03.jpg')">
+					<article class="col-7 q-pa-xl block-content" style="background-image:url('statics/pic03.jpg')">
 						<header class="major">
 							<h3>
 								<a href="https://www.facebook.com/boholsongbirds/" class="link">
@@ -77,7 +77,7 @@
 						<featured-band />
 					</article>
 
-					<article class="col-7 q-pa-xl block-content" style="background-image:url('assets/pic06.jpg')">
+					<article class="col-7 q-pa-xl block-content" style="background-image:url('statics/pic06.jpg')">
 						<header class="major">
 							<h3>
 								<a href="landing.html" class="link">
@@ -89,7 +89,7 @@
 						<featured-dj />
 					</article>
 
-					<article class="col-5 q-pa-xl block-content" style="background-image:url('assets/pic05.jpg')">
+					<article class="col-5 q-pa-xl block-content" style="background-image:url('statics/pic05.jpg')">
 						<header class="major">
 							<h3>
 								<a href="landing.html" class="link">
@@ -281,7 +281,7 @@ header.q-layout-header
 	height: 40em
 
 	.banner-bg-overlay
-		background-image: url('../assets/bannergettyimage.jpg')
+		background-image: url('../statics/bannergettyimage.jpg')
 		width: 100%
 		height: 100%
 		position: absolute

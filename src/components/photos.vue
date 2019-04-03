@@ -6,14 +6,14 @@
 	  quick-nav
 	  height="300px"
 	  :thumbnails="[
-	    'assets/photos/img1.jpg',
-	    'assets/photos/img2.jpg',
-	    'assets/photos/img3.jpg'
+	    'statics/photos/img1.jpg',
+	    'statics/photos/img2.jpg',
+	    'statics/photos/img3.jpg'
 	  ]"
 	>
-	  <q-carousel-slide img-src="assets/photos/img1.jpg" />
-	  <q-carousel-slide img-src="assets/photos/img2.jpg" />
-	  <q-carousel-slide img-src="assets/photos/img3.jpg" />
+	  <q-carousel-slide img-src="statics/photos/img1.jpg" />
+	  <q-carousel-slide img-src="statics/photos/img2.jpg" />
+	  <q-carousel-slide img-src="statics/photos/img3.jpg" />
 	</q-carousel>
 </div>
 </template>
