@@ -1,26 +1,14 @@
 <template>
 <div class="events-container">
-	<q-list no-border>
-		<q-item>
-			<q-item-side>
-				<img src="" />
-			</q-item-side>
+	<div class="row">
+		<div class="col-6">
+				<img src="statics/events/disnight.png" />
+		</div>
 
-			<q-item-main>
-				<h5>Di's Night is every first friday of the month</h5>
-			</q-item-main>
-		</q-item>
-
-		<q-item>
-			<q-item-side>
-				<img src="" />
-			</q-item-side>
-
-			<q-item-main>
-				<h5>Special events every last friday of the month</h5>
-			</q-item-main>
-		</q-item>
-	</q-list>
+		<div class="col-6">
+				<img src="statics/events/special_events.png" />
+		</div>
+	</div>
 </div>
 </template>
 
@@ -37,5 +25,5 @@ export default {
 <style lang="styl">
 .events-container
 	img
-		max-width: 10em
+		width: 100%
 </style>

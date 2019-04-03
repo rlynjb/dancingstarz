@@ -97,7 +97,7 @@
 									Food Menu
 								</a>
 							</h3>
-							<img src="" />
+							<img class="foodmenu-img" src="statics/foodmenu.png" />
 							<q-btn color="primary" icon="fab fa-yelp">https://www.yelp.com/biz/bropards-las-vegas-2</q-btn>
 						</header>
 					</article>
@@ -236,6 +236,9 @@ export default {
 
 <style lang="styl">
 @import '~variables'
+
+.foodmenu-img
+	width: 100%
 
 header
 	.logo
