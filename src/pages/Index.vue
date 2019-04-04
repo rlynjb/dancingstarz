@@ -33,9 +33,9 @@
 
 				<!-- One -->
 				<section id="one" class="tiles row">
-					<article class="col-7 q-pa-xl block-content" style="background-image:url('statics/pic02.jpg')">
+					<article class="col-5 block-content" style="background-image:url('statics/pic01.jpg')">
 						<header class="major">
-							<h3>
+							<h3 class="no-margin">
 								<b>&#9830;</b>
 								Highlight Event
 							</h3>
@@ -43,9 +43,9 @@
 						<highlight-events />
 					</article>
 
-					<article class="col-5 block-content" style="background-image:url('statics/pic01.jpg')">
-						<header class="major q-pa-xl">
-							<h3>
+					<article class="col-7 block-content" style="background-image:url('statics/pic02.jpg')">
+						<header class="major">
+							<h3 class="no-margin">
 								<b>&#9830;</b>
 								Photos
 							</h3>
@@ -53,21 +53,10 @@
 						<photos />
 					</article>
 
-					<article class="col-5 q-pa-xl block-content" style="background-image:url('statics/pic04.jpg')">
-						<header class="major">
-							<h3>
-								<a href="landing.html" class="link">
-									<b>&#9830;</b>
-									Videos
-								</a>
-							</h3>
-						</header>
-						<videos />
-					</article>
 
-					<article class="col-7 q-pa-xl block-content" style="background-image:url('statics/pic03.jpg')">
+					<article class="col-7 block-content" style="background-image:url('statics/pic03.jpg')">
 						<header class="major">
-							<h3>
+							<h3 class="no-margin">
 								<a href="https://www.facebook.com/boholsongbirds/" class="link">
 									<b>&#9830;</b>
 									Featuring Bohol Song Bird
@@ -77,9 +66,34 @@
 						<featured-band />
 					</article>
 
-					<article class="col-7 q-pa-xl block-content" style="background-image:url('statics/pic06.jpg')">
+					<article class="col-5 q-pa-xl block-content" style="background-image:url('statics/pic04.jpg')">
 						<header class="major">
-							<h3>
+							<h3 class="no-margin">
+								<a href="landing.html" class="link">
+									<b>&#9830;</b>
+									Videos
+								</a>
+							</h3>
+						</header>
+						<videos />
+					</article>
+
+					<article class="col-5 block-content" style="background-image:url('statics/pic05.jpg')">
+						<header class="major">
+							<h3 class="no-margin">
+								<a href="landing.html" class="link">
+									<b>&#9830;</b>
+									Food Menu
+								</a>
+							</h3>
+						</header>
+						<img class="foodmenu-img" src="statics/foodmenu.png" />
+						<q-btn color="primary" icon="fab fa-yelp">https://www.yelp.com/biz/bropards-las-vegas-2</q-btn>
+					</article>
+
+					<article class="col-7 block-content" style="background-image:url('statics/pic06.jpg')">
+						<header class="major">
+							<h3 class="no-margin">
 								<a href="landing.html" class="link">
 									<b>&#9830;</b>
 									Everynight featuring DJ Jake, Mike, Edison
@@ -88,26 +102,13 @@
 						</header>
 						<featured-dj />
 					</article>
-
-					<article class="col-5 q-pa-xl block-content" style="background-image:url('statics/pic05.jpg')">
-						<header class="major">
-							<h3>
-								<a href="landing.html" class="link">
-									<b>&#9830;</b>
-									Food Menu
-								</a>
-							</h3>
-							<img class="foodmenu-img" src="statics/foodmenu.png" />
-							<q-btn color="primary" icon="fab fa-yelp">https://www.yelp.com/biz/bropards-las-vegas-2</q-btn>
-						</header>
-					</article>
 				</section>
 
 				<!-- Two -->
 				<section id="two" class="row q-pa-xl block-content">
 					<div class="inner">
 						<header class="major">
-							<h3>
+							<h3 class="no-margin">
 								<b>&#9830;</b>
 								Events
 							</h3>
@@ -329,13 +330,21 @@ header.q-layout-header
 
 	.block-content
 		background-size: cover
+		position: relative
+		overflow: hidden
 		header
+			position: absolute
+			top: -1em
+			left: -1em
+			background: $primary
+			padding: 1em 1em 0.1em 1.5em
+			box-shadow: 1px 1px 8px #000
+			z-index: 1
 			h3
 				font-family: $font6
-				font-size: 2em
-				margin-top: 0
+				font-size: 1.5em
 				b
-					color: $primary
+					color: #fff
 					font-size: 0.9em
 
 		.photos-container
