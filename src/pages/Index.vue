@@ -33,7 +33,7 @@
 
 				<!-- One -->
 				<section id="one" class="tiles row">
-					<article class="col-5 block-content" style="background-image:url('statics/pic01.jpg')">
+					<article class="col-4 block-content" style="background-image:url('statics/pic01.jpg')">
 						<header class="major">
 							<h3 class="no-margin">
 								<b>&#9830;</b>
@@ -43,18 +43,7 @@
 						<highlight-events />
 					</article>
 
-					<article class="col-7 block-content" style="background-image:url('statics/pic02.jpg')">
-						<header class="major">
-							<h3 class="no-margin">
-								<b>&#9830;</b>
-								Photos
-							</h3>
-						</header>
-						<photos />
-					</article>
-
-
-					<article class="col-7 block-content" style="background-image:url('statics/pic03.jpg')">
+					<article class="col-4 block-content" style="background-image:url('statics/pic03.jpg')">
 						<header class="major">
 							<h3 class="no-margin">
 								<b>&#9830;</b>
@@ -64,28 +53,7 @@
 						<featured-band />
 					</article>
 
-					<article class="col-5 q-pa-xl block-content" style="background-image:url('statics/pic04.jpg')">
-						<header class="major">
-							<h3 class="no-margin">
-								<b>&#9830;</b>
-								Videos
-							</h3>
-						</header>
-						<videos />
-					</article>
-
-					<article class="col-5 block-content text-center" style="background-image:url('statics/pic05.jpg')">
-						<header class="major">
-							<h3 class="no-margin">
-								<b>&#9830;</b>
-								Food Menu
-							</h3>
-						</header>
-						<img class="foodmenu-img q-mb-lg" src="statics/foodmenu.png" />
-						<q-icon name="fab fa-yelp" class="q-mr-sm"/><a href="https://www.yelp.com/biz/bropards-las-vegas-2">View old menu</a>
-					</article>
-
-					<article class="col-7 block-content" style="background-image:url('statics/pic06.jpg')">
+					<article class="col-4 block-content" style="background-image:url('statics/pic06.jpg')">
 						<header class="major">
 							<h3 class="no-margin">
 								<a href="landing.html" class="link">
@@ -95,6 +63,37 @@
 							</h3>
 						</header>
 						<featured-dj />
+					</article>
+
+					<article class="col-6 block-content" style="background-image:url('statics/pic02.jpg')">
+						<header class="major">
+							<h3 class="no-margin">
+								<b>&#9830;</b>
+								Photos
+							</h3>
+						</header>
+						<photos />
+					</article>
+
+					<article class="col-6 q-pa-xl block-content" style="background-image:url('statics/pic04.jpg')">
+						<header class="major">
+							<h3 class="no-margin">
+								<b>&#9830;</b>
+								Videos
+							</h3>
+						</header>
+						<videos />
+					</article>
+
+					<article class="col-7 block-content text-center" style="background-image:url('statics/pic05.jpg')">
+						<header class="major">
+							<h3 class="no-margin">
+								<b>&#9830;</b>
+								Food Menu
+							</h3>
+						</header>
+						<img class="foodmenu-img q-mb-lg" src="statics/foodmenu.png" />
+						<q-icon name="fab fa-yelp" class="q-mr-sm"/><a href="https://www.yelp.com/biz/bropards-las-vegas-2">View old menu</a>
 					</article>
 				</section>
 
@@ -340,6 +339,13 @@ header.q-layout-header
 				b
 					color: #fff
 					font-size: 0.9em
+
+		img
+			-webkit-filter: grayscale(100%); /* Safari */
+			filter: grayscale(100%);
+			&:hover
+				-webkit-filter: grayscale(0%); /* Safari */
+				filter: grayscale(0%);
 
 		.photos-container
 			width: 100%

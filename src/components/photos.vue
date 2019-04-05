@@ -4,7 +4,7 @@
 	  color="white"
 	  arrows
 	  quick-nav
-	  height="300px"
+	  height="100%"
 	  :thumbnails="[
 	    'statics/photos/img1.jpg',
 	    'statics/photos/img2.jpg',
