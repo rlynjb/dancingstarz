@@ -1,11 +1,11 @@
 <template>
 <div class="events-container">
 	<div class="row">
-		<div class="col-6">
+		<div class="col-5">
 				<img src="statics/events/disnight.png" />
 		</div>
 
-		<div class="col-6">
+		<div class="col-7">
 				<img src="statics/events/special_events.png" />
 		</div>
 	</div>

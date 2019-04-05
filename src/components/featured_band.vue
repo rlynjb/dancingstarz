@@ -1,7 +1,6 @@
 <template>
 <div class="featuredBand">
 	<img src="statics/featured-band/bsb.png" />
-	<q-btn icon="fab fa-facebook" color="primary">https://www.facebook.com/boholsongbirds</q-btn>
 </div>
 </template>
 

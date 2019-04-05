@@ -57,10 +57,8 @@
 					<article class="col-7 block-content" style="background-image:url('statics/pic03.jpg')">
 						<header class="major">
 							<h3 class="no-margin">
-								<a href="https://www.facebook.com/boholsongbirds/" class="link">
-									<b>&#9830;</b>
-									Featuring Bohol Song Bird
-								</a>
+								<b>&#9830;</b>
+								Featuring Bohol Song Bird
 							</h3>
 						</header>
 						<featured-band />
@@ -69,26 +67,22 @@
 					<article class="col-5 q-pa-xl block-content" style="background-image:url('statics/pic04.jpg')">
 						<header class="major">
 							<h3 class="no-margin">
-								<a href="landing.html" class="link">
-									<b>&#9830;</b>
-									Videos
-								</a>
+								<b>&#9830;</b>
+								Videos
 							</h3>
 						</header>
 						<videos />
 					</article>
 
-					<article class="col-5 block-content" style="background-image:url('statics/pic05.jpg')">
+					<article class="col-5 block-content text-center" style="background-image:url('statics/pic05.jpg')">
 						<header class="major">
 							<h3 class="no-margin">
-								<a href="landing.html" class="link">
-									<b>&#9830;</b>
-									Food Menu
-								</a>
+								<b>&#9830;</b>
+								Food Menu
 							</h3>
 						</header>
-						<img class="foodmenu-img" src="statics/foodmenu.png" />
-						<q-btn color="primary" icon="fab fa-yelp">https://www.yelp.com/biz/bropards-las-vegas-2</q-btn>
+						<img class="foodmenu-img q-mb-lg" src="statics/foodmenu.png" />
+						<q-icon name="fab fa-yelp" class="q-mr-sm"/><a href="https://www.yelp.com/biz/bropards-las-vegas-2">View old menu</a>
 					</article>
 
 					<article class="col-7 block-content" style="background-image:url('statics/pic06.jpg')">
