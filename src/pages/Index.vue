@@ -235,9 +235,16 @@ export default {
 
       this.$getGapiClient()
         .then(gapi => {
-        	console.log('lol', gapi)
-          // gapi.sheets.spreadsheet.get(...)
-          // ...
+        	console.log('init', gapi)
+          gapi.client.request({
+					  path: 'https://photoslibrary.googleapis.com/v1/sharedAlbums',
+					  method: 'GET',
+					  params: {
+					    shareToken: 'WgEMUJCVEUTYF5i69'
+					  }
+          }).then(res => {
+          	console.log('on suucess', res)
+          })
         })
   },
 
