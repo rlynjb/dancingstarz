@@ -217,6 +217,21 @@ export default {
   	featuredDj,
   	videos,
   },
+
+  mounted() {
+		this.$gapi.request({
+		  path: 'https://photoslibrary.googleapis.com/v1/sharedAlbums',
+		  method: 'GET',
+		  params: {
+		    shareToken: 'WgEMUJCVEUTYF5i69'
+		  }
+		}).then(response => {
+		  console.log('paningninig', response)
+		}).catch(res => {
+			console.log('nono', res)
+		})
+  },
+
   data() {
   	return {
   		contact: {
