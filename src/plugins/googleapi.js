@@ -1,5 +1,6 @@
 // import something here
-import VueGoogleApi from 'vue-google-api'
+//import VueGoogleApi from 'vue-google-api'
+import VueGAPI from "vue-gapi";
  
 const config = {
   apiKey: 'AIzaSyC6Yw4b_1gsSAW7VYJ4w_9JJP0k1beLSuk',
@@ -12,6 +13,6 @@ const config = {
 // leave the export, even if you don't use it
 export default ({ app, router, Vue }) => {
   // something to do
-  Vue.use(VueGoogleApi, config)
+  Vue.use(VueGAPI, config)
   //Vue.prototype.$gapi = VueGoogleApi
 }

@@ -219,6 +219,7 @@ export default {
   },
 
   mounted() {
+  /*
 		this.$gapi.request({
 		  path: 'https://photoslibrary.googleapis.com/v1/sharedAlbums',
 		  method: 'GET',
@@ -230,6 +231,14 @@ export default {
 		}).catch(res => {
 			console.log('nono', res)
 		})
+		*/
+
+      this.$getGapiClient()
+        .then(gapi => {
+        	console.log('lol', gapi)
+          // gapi.sheets.spreadsheet.get(...)
+          // ...
+        })
   },
 
   data() {
