@@ -32,8 +32,8 @@
 			<div id="main">
 
 				<!-- One -->
-				<section id="one" class="tiles row">
-					<article class="col-4 block-content" style="background-image:url('statics/pic01.jpg')">
+				<section id="one" class="tiles masonry-layout">
+					<article class="masonry-layout-panel block-content">
 						<header class="major">
 							<h3 class="no-margin">
 								<b>&#9830;</b>
@@ -43,29 +43,29 @@
 						<highlight-events />
 					</article>
 
-					<article class="col-4 block-content" style="background-image:url('statics/pic03.jpg')">
+					<article class="masonry-layout-panel block-content">
 						<header class="major">
 							<h3 class="no-margin">
 								<b>&#9830;</b>
-								Featuring Bohol Song Bird
+								Featuring
 							</h3>
 						</header>
 						<featured-band />
 					</article>
 
-					<article class="col-4 block-content" style="background-image:url('statics/pic06.jpg')">
+					<article class="masonry-layout-panel block-content">
 						<header class="major">
 							<h3 class="no-margin">
 								<a href="landing.html" class="link">
 									<b>&#9830;</b>
-									Everynight featuring DJ Jake, Mike, Edison
+									Everynight
 								</a>
 							</h3>
 						</header>
 						<featured-dj />
 					</article>
 
-					<article class="col-6 block-content" style="background-image:url('statics/pic02.jpg')">
+					<article class="masonry-layout-panel block-content">
 						<header class="major">
 							<h3 class="no-margin">
 								<b>&#9830;</b>
@@ -75,7 +75,7 @@
 						<photos />
 					</article>
 
-					<article class="col-6 q-pa-xl block-content" style="background-image:url('statics/pic04.jpg')">
+					<article class="masonry-layout-panel block-content">
 						<header class="major">
 							<h3 class="no-margin">
 								<b>&#9830;</b>
@@ -85,19 +85,28 @@
 						<videos />
 					</article>
 
-					<article class="col-7 block-content text-center" style="background-image:url('statics/pic05.jpg')">
+					<article class="masonry-layout-panel block-content">
 						<header class="major">
 							<h3 class="no-margin">
 								<b>&#9830;</b>
-								Food Menu
+								Food
 							</h3>
 						</header>
 						<img class="foodmenu-img q-mb-lg" src="statics/foodmenu.png" />
 						<q-icon name="fab fa-yelp" class="q-mr-sm"/><a href="https://www.yelp.com/biz/bropards-las-vegas-2">View old menu</a>
 					</article>
+
+					<div class="masonry-layout-panel block-content">
+							<img src="statics/events/disnight.png" />
+					</div>
+
+					<div class="masonry-layout-panel block-content">
+							<img src="statics/events/special_events.png" />
+					</div>
 				</section>
 
 				<!-- Two -->
+				<!--
 				<section id="two" class="row q-pa-xl block-content">
 					<div class="inner">
 						<header class="major">
@@ -110,6 +119,7 @@
 						<events />
 					</div>
 				</section>
+				-->
 
 			</div>
 
@@ -262,6 +272,21 @@ export default {
 <style lang="styl">
 @import '~variables'
 
+.masonry-layout {
+  column-count: 3;
+  -webkit-column-count: 3;
+  column-gap: 0;
+  -webkit-column-gap: 0;
+}
+.masonry-layout-panel {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  margin: 10px;
+}
+
+.q-carousel-inner
+	height: 17em
+
 .foodmenu-img
 	width: 100%
 
@@ -354,15 +379,12 @@ header.q-layout-header
 
 	.block-content
 		background-size: cover
-		position: relative
 		overflow: hidden
+		background: #000
+		min-height: 17em
 		header
-			position: absolute
-			top: -1em
-			left: -1em
 			background: $primary
-			padding: 1em 1em 0.1em 1.5em
-			box-shadow: 1px 1px 8px #000
+			padding: 0 1em 0 1em
 			z-index: 1
 			h3
 				font-family: $font6
@@ -374,6 +396,7 @@ header.q-layout-header
 		img
 			-webkit-filter: grayscale(100%); /* Safari */
 			filter: grayscale(100%);
+			width: 100%
 			&:hover
 				-webkit-filter: grayscale(0%); /* Safari */
 				filter: grayscale(0%);

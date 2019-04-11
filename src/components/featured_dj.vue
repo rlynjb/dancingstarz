@@ -1,6 +1,5 @@
 <template>
 <div class="featured-dj-container">
-	<p>Playing everynight! Only at Dance Starz Cafe.</p>
 	<img src="statics/featured-band/djsflyer.png" />
 </div>
 </template>
