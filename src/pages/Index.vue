@@ -394,12 +394,12 @@ header.q-layout-header
 					font-size: 0.9em
 
 		img
-			-webkit-filter: grayscale(100%); /* Safari */
-			filter: grayscale(100%);
+			//-webkit-filter: grayscale(100%); /* Safari */
+			//filter: grayscale(100%);
 			width: 100%
-			&:hover
-				-webkit-filter: grayscale(0%); /* Safari */
-				filter: grayscale(0%);
+			//&:hover
+				//-webkit-filter: grayscale(0%); /* Safari */
+				//filter: grayscale(0%);
 
 		.photos-container
 			width: 100%
