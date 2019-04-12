@@ -228,36 +228,6 @@ export default {
   	videos,
   },
 
-  mounted() {
-  /*
-		this.$gapi.request({
-		  path: 'https://photoslibrary.googleapis.com/v1/sharedAlbums',
-		  method: 'GET',
-		  params: {
-		    shareToken: 'WgEMUJCVEUTYF5i69'
-		  }
-		}).then(response => {
-		  console.log('paningninig', response)
-		}).catch(res => {
-			console.log('nono', res)
-		})
-		*/
-
-      this.$getGapiClient()
-        .then(gapi => {
-        	console.log('init', gapi)
-          gapi.client.request({
-					  path: 'https://photoslibrary.googleapis.com/v1/sharedAlbums',
-					  method: 'GET',
-					  params: {
-					    shareToken: 'WgEMUJCVEUTYF5i69'
-					  }
-          }).then(res => {
-          	console.log('on suucess', res)
-          })
-        })
-  },
-
   data() {
   	return {
   		contact: {

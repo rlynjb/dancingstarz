@@ -5,11 +5,6 @@
 	  arrows
 	  quick-nav
 	  height="100%"
-	  :thumbnails="[
-	    'statics/photos/img1.jpg',
-	    'statics/photos/img2.jpg',
-	    'statics/photos/img3.jpg'
-	  ]"
 	>
 	  <q-carousel-slide img-src="statics/photos/img1.jpg" />
 	  <q-carousel-slide img-src="statics/photos/img2.jpg" />
@@ -24,6 +19,12 @@ export default {
 		return {
 			//
 		}
+	},
+	mounted() {
+  	this.$storage.ref().child('webpics/img1.jpg').getDownloadURL()
+  		.then(url => {
+  			console.log('from firebase', url)
+  		})
 	}
 }
 </script>
