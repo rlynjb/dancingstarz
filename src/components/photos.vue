@@ -6,9 +6,7 @@
 	  quick-nav
 	  height="100%"
 	>
-	  <q-carousel-slide img-src="statics/photos/img1.jpg" />
-	  <q-carousel-slide img-src="statics/photos/img2.jpg" />
-	  <q-carousel-slide img-src="statics/photos/img3.jpg" />
+	  <q-carousel-slide v-for="(item, index) in photos" :key="index" :img-src="'statics/photos/'+item.filename" />
 	</q-carousel>
 </div>
 </template>
@@ -20,7 +18,18 @@ export default {
 			//
 		}
 	},
+	computed: {
+		photos() {
+			return this.$store.state.photos
+		}
+	},
 	mounted() {
+		/*
+			NOTE:
+			do a api call of list of photos in db from beforeEnter router,
+			store data in store
+			in this component, get data from store and v-for in q-carousel slide
+		*/
   	this.$storage.ref().child('webpics/img1.jpg').getDownloadURL()
   		.then(url => {
   			console.log('from firebase', url)

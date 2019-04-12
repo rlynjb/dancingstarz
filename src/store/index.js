@@ -14,7 +14,23 @@ export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
     modules: {
       example
-    }
+    },
+	  state: {
+	  	photos: [
+	  		{
+	  			filename: 'img1.jpg'
+	  		},
+	  		{
+	  			filename: 'img2.jpg'
+	  		},
+	  		{
+	  			filename: 'img3.jpg'
+	  		}
+	  	]
+	  },
+	  getters: {},
+	  mutations: {},
+	  actions: {}
   })
 
   return Store
