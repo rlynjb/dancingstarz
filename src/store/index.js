@@ -16,6 +16,7 @@ export default function (/* { ssrContext } */) {
       example
     },
 	  state: {
+	  	photoPath: 'statics/photos/',
 	  	photos: [
 	  		{
 	  			filename: 'img1.jpg'

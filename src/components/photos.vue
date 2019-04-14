@@ -6,7 +6,7 @@
 	  quick-nav
 	  height="100%"
 	>
-	  <q-carousel-slide v-for="(item, index) in photos" :key="index" :img-src="'statics/photos/'+item.filename" />
+	  <q-carousel-slide v-for="(item, index) in photos" :key="index" :img-src="photoPath + item.filename" />
 	</q-carousel>
 </div>
 </template>
@@ -19,6 +19,9 @@ export default {
 		}
 	},
 	computed: {
+		photoPath() {
+			return this.$store.state.photoPath
+		},
 		photos() {
 			return this.$store.state.photos
 		}
@@ -30,10 +33,17 @@ export default {
 			store data in store
 			in this component, get data from store and v-for in q-carousel slide
 		*/
-  	this.$storage.ref().child('webpics/img1.jpg').getDownloadURL()
-  		.then(url => {
-  			console.log('from firebase', url)
-  		})
+  	console.log('kirby', this.getPhoto())
+	},
+	methods: {
+		getPhoto() {
+			return new Promise((resolve, reject) => {
+				this.$storage.ref().child('webpics/img1.jpg').getDownloadURL()
+		  		.then(url => {
+		  			resolve(url)
+		  		})
+			})
+		}
 	}
 }
 </script>
