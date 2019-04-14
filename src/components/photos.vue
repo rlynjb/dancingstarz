@@ -33,16 +33,14 @@ export default {
 			store data in store
 			in this component, get data from store and v-for in q-carousel slide
 		*/
-  	console.log('kirby', this.getPhoto())
+  	this.getPhoto().then(res => {
+  		console.log('hello', res)
+  	})
 	},
 	methods: {
-		getPhoto() {
-			return new Promise((resolve, reject) => {
-				this.$storage.ref().child('webpics/img1.jpg').getDownloadURL()
-		  		.then(url => {
-		  			resolve(url)
-		  		})
-			})
+		async getPhoto(filename) {
+			let res  = await this.$storage.ref().child('webpics/img1.jpg').getDownloadURL()
+	  	return res
 		}
 	}
 }
