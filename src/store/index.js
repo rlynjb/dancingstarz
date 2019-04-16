@@ -28,19 +28,17 @@ const Store = new Vuex.Store({
   	]
   },
   getters: {},
+
   mutations: {
   	updatePhotoUrl(state, {filename, url}) {
   		let photo = state.photos.find(v => v.filename === filename)
-  		photo['url'] = url
+  		Vue.set(photo, 'url', url)
   	}
   },
+
   actions: {
 		async getPhoto({commit, store}, filename) {
-			let url  = await storage.ref().child('webpics/'+filename).getDownloadURL()
-
-			axios.get(url).then(res => {
-				console.log('bm', res)
-			})
+			let url  = await storage.ref().child('webpics/' + filename).getDownloadURL()
 	  	commit('updatePhotoUrl', {filename, url})
 		}
   }
