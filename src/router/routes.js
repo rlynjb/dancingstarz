@@ -22,7 +22,30 @@ const routes = [
         }
       }
     ]
-  }
+  },
+
+  {
+    path: '/admin',
+    component: () => import('layouts/AdminLayout.vue'),
+    children: [
+      {
+        path: '', component: () => import('pages/admin/Index.vue'),
+        beforeEnter(to, from, next) {
+          // get photo list
+          store.dispatch('getPhotoList').then(res => {
+            // get photo url
+            store.state.photos.forEach((v, i) => {
+              store.dispatch('getPhoto', v.filename)
+
+              if (store.state.photos.length - 1 === i) {
+                next()
+              }
+            })
+          })
+        }
+      }
+    ]
+  },
 ]
 
 // Always leave this as last one
