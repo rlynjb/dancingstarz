@@ -8,12 +8,16 @@ const routes = [
       {
         path: '', component: () => import('pages/Index.vue'),
         beforeEnter(to, from, next) {
-          store.state.photos.forEach((v, i) => {
-            store.dispatch('getPhoto', v.filename)
+          // get photo list
+          store.dispatch('getPhotoList').then(res => {
+            // get photo url
+            store.state.photos.forEach((v, i) => {
+              store.dispatch('getPhoto', v.filename)
 
-            if (store.state.photos.length - 1 === i) {
-              next()
-            }
+              if (store.state.photos.length - 1 === i) {
+                next()
+              }
+            })
           })
         }
       }

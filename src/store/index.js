@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { storage } from '../plugins/firebase'
+import { storage, firestore } from '../plugins/firebase'
 import { axios } from '../plugins/axios'
 
 import example from './module-example'
@@ -14,22 +14,18 @@ Vue.use(Vuex)
 
 const Store = new Vuex.Store({
   state: {
-  	photoPath: 'statics/photos/',
-  	photos: [
-  		{
-  			filename: 'img1.jpg'
-  		},
-  		{
-  			filename: 'img2.jpg'
-  		},
-  		{
-  			filename: 'img3.jpg'
-  		}
-  	]
+  	photos: []
   },
   getters: {},
 
   mutations: {
+  	updatePhotos(state, {id, filename}) {
+  		state.photos.push({
+  			id,
+  			filename
+  		})
+  	},
+
   	updatePhotoUrl(state, {filename, url}) {
   		let photo = state.photos.find(v => v.filename === filename)
   		Vue.set(photo, 'url', url)
@@ -37,6 +33,17 @@ const Store = new Vuex.Store({
   },
 
   actions: {
+  	async getPhotoList({commit, store}) {
+  		let list = await firestore.collection('photos').get().then(res => {
+  			res.forEach(v => {
+  				commit('updatePhotos', {
+  					id: v.id,
+  					filename: v.data().filename
+  				})
+  			})
+  		})
+  	},
+
 		async getPhoto({commit, store}, filename) {
 			let url  = await storage.ref().child('webpics/' + filename).getDownloadURL()
 	  	commit('updatePhotoUrl', {filename, url})
