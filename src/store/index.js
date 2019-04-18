@@ -33,6 +33,10 @@ const Store = new Vuex.Store({
   },
 
   actions: {
+  	async uploadPhoto({commit, store}, file){
+  		//
+  	},
+
   	async getPhotoList({commit, store}) {
   		let list = await firestore.collection('photos').get().then(res => {
   			res.forEach(v => {

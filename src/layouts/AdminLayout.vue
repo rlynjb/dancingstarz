@@ -17,6 +17,7 @@
         -->
 
         <q-toolbar-title class="text-center">
+          Dashboard - Dancing Starz Cafe
         </q-toolbar-title>
       </q-toolbar>
     </q-layout-header>

@@ -1,9 +1,8 @@
 <template>
 <q-page class="q-pa-lg">
-  admin area
   <q-card class="q-mb-lg">
   	<q-card-main>
-			<q-uploader :url="url" />
+			<q-uploader :url="url" :upload-factory="uploadFile" />
 		</q-card-main>
 	</q-card>
 
@@ -26,6 +25,8 @@
 </template>
 
 <script>
+import { storage, firestore } from '../plugins/firebase'
+
 export default {
   name: 'AdminIndex',
 
@@ -42,6 +43,10 @@ export default {
   },
 
   methods: {
+  	uploadFile (file, updateProgress) {
+  		console.log(file)
+  	},
+
   	removePhoto() {
   		//
   	},
