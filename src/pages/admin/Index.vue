@@ -6,8 +6,8 @@
 		</q-card-main>
 	</q-card>
 
-  <q-list class="">
-  	<q-item v-for="(photo, index) in photos" :key="index">
+  <q-list class="row">
+  	<q-item class="col-6" v-for="(photo, index) in photos" :key="index">
   		<q-item-side>
   			<img :src="photo.url" />
   		</q-item-side>
@@ -17,7 +17,7 @@
   		</q-item-main>
 
   		<q-item-side>
-				<q-btn @click="removePhoto">Remove</q-btn>
+				<q-btn @click="removePhoto(photo.filename)">Remove</q-btn>
   		</q-item-side>
   	</q-item>
   </q-list>
@@ -56,12 +56,20 @@ export default {
     			// complete
     			console.log('success', success)
     			// add filename to firestore
+    			this.$store.dispatch('addPhotoName', file.name)
+    			// call getPhotos again to refresh list
     		})
     	})
   	},
 
-  	removePhoto() {
-  		//
+  	removePhoto(filename) {
+  		/*
+			storage.ref().child('webpics/' + filename).delete().then(() => {
+			  // File deleted successfully
+			}).catch(function(error) {
+			  // Uh-oh, an error occurred!
+			});
+			*/
   	},
   }
 }

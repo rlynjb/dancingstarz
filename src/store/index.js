@@ -33,6 +33,28 @@ const Store = new Vuex.Store({
   },
 
   actions: {
+  	async addPhotoName({commit, store}, filename) {
+			// Add a new document in collection "photos"
+			firestore.collection("photos").add({
+			  filename: filename
+			})
+			.then((res) => {
+		    console.log("Photo successfully written!", res)
+		    // push to state.photos
+		    commit('updatePhotos', {
+		    	id: res.id,
+		    	filename: filename
+		    })
+			})
+			.catch((error) => {
+			  console.error("Error writing document: ", error)
+			})
+  	},
+
+  	async deletePhotoName({commit, store}, id) {
+  		//
+  	},
+
   	async uploadPhoto({commit, store}, file){
   		//
   	},
