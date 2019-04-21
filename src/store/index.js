@@ -19,39 +19,23 @@ const Store = new Vuex.Store({
   getters: {},
 
   mutations: {
-  	updatePhotos(state, {id, filename}) {
+  	pushPhotos(state, {id, url, filename}) {
   		state.photos.push({
-  			id,
+        id,
+  			url,
   			filename
   		})
   	},
-
-  	updatePhotoUrl(state, {filename, url}) {
-  		let photo = state.photos.find(v => v.filename === filename)
-  		Vue.set(photo, 'url', url)
-  	}
   },
 
   actions: {
-  	async addPhotoName({commit, store}, filename) {
+  	async createPhotoItem({commit, store}, arg) {
 			// Add a new document in collection "photos"
-			firestore.collection("photos").add({
-			  filename: filename
-			})
-			.then((res) => {
-		    console.log("Photo successfully written!", res)
-		    // push to state.photos
-		    commit('updatePhotos', {
-		    	id: res.id,
-		    	filename: filename
-		    })
-			})
-			.catch((error) => {
-			  console.error("Error writing document: ", error)
-			})
+			let res = await firestore.collection("photos").add(arg)
+			return res
   	},
 
-  	async deletePhotoName({commit, store}, id) {
+  	async deletePhotoItem({commit, store}, id) {
   		//
   	},
 
@@ -59,20 +43,24 @@ const Store = new Vuex.Store({
   		//
   	},
 
+    async deletePhoto({commit, store}, file){
+      /*
+      storage.ref().child('webpics/' + filename).delete().then(() => {
+        // File deleted successfully
+      }).catch(function(error) {
+        // Uh-oh, an error occurred!
+      });
+      */
+    },
+
   	async getPhotoList({commit, store}) {
-  		let list = await firestore.collection('photos').get().then(res => {
-  			res.forEach(v => {
-  				commit('updatePhotos', {
-  					id: v.id,
-  					filename: v.data().filename
-  				})
-  			})
-  		})
+  		let list = await firestore.collection('photos').get()
+      return list
   	},
 
-		async getPhoto({commit, store}, filename) {
+		async getPhotoUrl({commit, store}, filename) {
 			let url  = await storage.ref().child('webpics/' + filename).getDownloadURL()
-	  	commit('updatePhotoUrl', {filename, url})
+	  	return url
 		}
   }
 })

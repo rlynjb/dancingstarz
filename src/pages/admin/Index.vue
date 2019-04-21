@@ -33,8 +33,7 @@ export default {
 
   data() {
   	return {
-  		url: '',
-  		storageRef: storage.ref().child('webpics/')
+  		url: ''
   	}
   },
 
@@ -44,20 +43,41 @@ export default {
   	}
   },
 
+  mounted() {
+  },
+
   methods: {
   	uploadFile (file, updateProgress) {
     	return new Promise((resolve, reject) => {
     		storage.ref().child('webpics/' + file.name).put(file).on('state_changed', (snapshot) => {
     			let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
     			resolve(file)
-    		}, (err) => {
-    			// catch err here
-    		}, (success) => {
-    			// complete
-    			console.log('success', success)
-    			// add filename to firestore
-    			this.$store.dispatch('addPhotoName', file.name)
-    			// call getPhotos again to refresh list
+
+    			// if upload is complete
+    			if (snapshot.bytesTransferred === snapshot.totalBytes) {
+	    			// add photo to firestore with id, filename, url
+	    			// and push to store photos arr
+
+	    			// get photo url
+    				this.$store.dispatch('getPhotoUrl', file.name).then(url => {
+    					// create photo item in firestore
+    					// and store filename and url
+		    			this.$store.dispatch('createPhotoItem', {
+		    				filename: file.name,
+		    				url: url
+		    			}).then(res => {
+		    				// push to app photos arr
+		    				this.$store.commit('pushPhotos', {
+		    					filename: file.name,
+		    					url: url
+		    				})
+		    			})
+
+    				})
+
+    			}
+
+
     		})
     	})
   	},

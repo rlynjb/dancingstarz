@@ -10,14 +10,15 @@ const routes = [
         beforeEnter(to, from, next) {
           // get photo list
           store.dispatch('getPhotoList').then(res => {
-            // get photo url
-            store.state.photos.forEach((v, i) => {
-              store.dispatch('getPhoto', v.filename)
-
-              if (store.state.photos.length - 1 === i) {
-                next()
-              }
+            res.forEach(v => {
+              store.commit('pushPhotos', {
+                id: res.id,
+                filename: v.data().filename,
+                url: v.data().url
+              })
             })
+          }).then(res => {
+            next()
           })
         }
       }
@@ -33,14 +34,15 @@ const routes = [
         beforeEnter(to, from, next) {
           // get photo list
           store.dispatch('getPhotoList').then(res => {
-            // get photo url
-            store.state.photos.forEach((v, i) => {
-              store.dispatch('getPhoto', v.filename)
-
-              if (store.state.photos.length - 1 === i) {
-                next()
-              }
+            res.forEach(v => {
+              store.commit('pushPhotos', {
+                id: res.id,
+                filename: v.data().filename,
+                url: v.data().url
+              })
             })
+          }).then(res => {
+            next()
           })
         }
       }
