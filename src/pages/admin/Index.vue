@@ -2,7 +2,7 @@
 <q-page class="q-pa-lg">
   <q-card class="q-mb-lg">
   	<q-card-main>
-			<q-uploader :url="url" :upload-factory="uploadFile" />
+			<q-uploader :url="url" :upload-factory="uploadFile" auto-expand />
 		</q-card-main>
 	</q-card>
 
@@ -25,7 +25,8 @@
 </template>
 
 <script>
-import { storage, firestore } from '../plugins/firebase'
+import { storage, firestore } from 'plugins/firebase'
+
 
 export default {
   name: 'AdminIndex',
@@ -33,6 +34,7 @@ export default {
   data() {
   	return {
   		url: '',
+  		storageRef: storage.ref().child('webpics/')
   	}
   },
 
@@ -44,7 +46,18 @@ export default {
 
   methods: {
   	uploadFile (file, updateProgress) {
-  		console.log(file)
+    	return new Promise((resolve, reject) => {
+    		storage.ref().child('webpics/' + file.name).put(file).on('state_changed', (snapshot) => {
+    			let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+    			resolve(file)
+    		}, (err) => {
+    			// catch err here
+    		}, (success) => {
+    			// complete
+    			console.log('success', success)
+    			// add filename to firestore
+    		})
+    	})
   	},
 
   	removePhoto() {
