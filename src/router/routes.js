@@ -11,8 +11,8 @@ const routes = [
           // get photo list
           store.dispatch('getPhotoList').then(res => {
             res.forEach(v => {
-              store.commit('pushPhotos', {
-                id: res.id,
+              store.commit('pushPhotosToState', {
+                id: v.id,
                 filename: v.data().filename,
                 url: v.data().url
               })
@@ -35,8 +35,8 @@ const routes = [
           // get photo list
           store.dispatch('getPhotoList').then(res => {
             res.forEach(v => {
-              store.commit('pushPhotos', {
-                id: res.id,
+              store.commit('pushPhotosToState', {
+                id: v.id,
                 filename: v.data().filename,
                 url: v.data().url
               })

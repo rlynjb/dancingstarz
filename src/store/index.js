@@ -19,13 +19,18 @@ const Store = new Vuex.Store({
   getters: {},
 
   mutations: {
-  	pushPhotos(state, {id, url, filename}) {
+  	pushPhotosToState(state, {id, url, filename}) {
   		state.photos.push({
         id,
   			url,
   			filename
   		})
   	},
+
+    removePhotoFromState(state, filename) {
+      let index = state.photos.findIndex(v => v.filename === filename)
+      state.photos.splice(index, 1)
+    }
   },
 
   actions: {
@@ -36,21 +41,17 @@ const Store = new Vuex.Store({
   	},
 
   	async deletePhotoItem({commit, store}, id) {
-  		//
+      let res = firestore.collection('photos').doc(id).delete()
+      return res
   	},
 
   	async uploadPhoto({commit, store}, file){
   		//
   	},
 
-    async deletePhoto({commit, store}, file){
-      /*
-      storage.ref().child('webpics/' + filename).delete().then(() => {
-        // File deleted successfully
-      }).catch(function(error) {
-        // Uh-oh, an error occurred!
-      });
-      */
+    async deletePhoto({commit, store}, filename){
+      let res = await storage.ref().child('webpics/' + filename).delete()
+      return res
     },
 
   	async getPhotoList({commit, store}) {

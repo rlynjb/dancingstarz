@@ -17,7 +17,7 @@
   		</q-item-main>
 
   		<q-item-side>
-				<q-btn @click="removePhoto(photo.filename)">Remove</q-btn>
+				<q-btn @click="removePhoto(photo)">Remove</q-btn>
   		</q-item-side>
   	</q-item>
   </q-list>
@@ -44,6 +44,7 @@ export default {
   },
 
   mounted() {
+  	console.log(this.$store.state.photos)
   },
 
   methods: {
@@ -67,7 +68,7 @@ export default {
 		    				url: url
 		    			}).then(res => {
 		    				// push to app photos arr
-		    				this.$store.commit('pushPhotos', {
+		    				this.$store.commit('pushPhotosToState', {
 		    					filename: file.name,
 		    					url: url
 		    				})
@@ -82,14 +83,16 @@ export default {
     	})
   	},
 
-  	removePhoto(filename) {
-  		/*
-			storage.ref().child('webpics/' + filename).delete().then(() => {
-			  // File deleted successfully
-			}).catch(function(error) {
-			  // Uh-oh, an error occurred!
-			});
-			*/
+  	removePhoto(item) {
+  		// delete in storage
+  		this.$store.dispatch('deletePhoto', item.filename).then(res => {
+  			// delete in firestore
+  			// delete in app state
+  			console.log('hello', item.id)
+  			this.$store.dispatch('deletePhotoItem', item.id).then(res => {
+  				this.$store.commit('removePhotoFromState', item.filename)
+  			})
+  		})
   	},
   }
 }
