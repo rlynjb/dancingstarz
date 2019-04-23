@@ -247,12 +247,23 @@ export default {
   -webkit-column-count: 3;
   column-gap: 0;
   -webkit-column-gap: 0;
+
+  @media screen and (max-width: 830px) {
+	  column-count: 2;
+	  -webkit-column-count: 2;
+  }
+
+  @media screen and (max-width: 540px) {
+	  column-count: 1
+	  -webkit-column-count: 1
+  }
 }
 .masonry-layout-panel {
   break-inside: avoid;
   -webkit-column-break-inside: avoid;
   margin: 10px;
 }
+
 
 .q-carousel-inner
 	height: 17em
@@ -318,7 +329,7 @@ header.q-layout-header
 		h1
 			// text-shadow: 3px 3px 6px #000
 			letter-spacing: 0px
-			font-size: 6em
+			font-size: 9vw
 			background: -webkit-linear-gradient(#fff, $primary)
 			-webkit-background-clip: text
 			-webkit-text-fill-color: transparent
@@ -330,7 +341,7 @@ header.q-layout-header
 
 		.formerly-known
 			font-size: 1.1em
-			margin-top: -3em
+			margin-top: 0
 
 			b
 				font-size: 1.3em
@@ -339,7 +350,7 @@ header.q-layout-header
 		> span
 			margin: 0 1em
 			font-family: $font6
-			font-size: 1.5em
+			font-size: 2.3vw
 		> b
 			color: gray
 

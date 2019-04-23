@@ -26,7 +26,7 @@ const routes = [
   },
 
   {
-    path: '/admin',
+    path: '/dashboard',
     component: () => import('layouts/AdminLayout.vue'),
     children: [
       {
