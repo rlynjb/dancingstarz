@@ -7,7 +7,7 @@
 	</q-card>
 
   <q-list class="row">
-  	<q-item class="col-6" v-for="(photo, index) in photos" :key="index">
+  	<q-item class="col-sm-12 col-md-6" v-for="(photo, index) in photos" :key="index">
   		<q-item-side>
   			<img :src="photo.url" />
   		</q-item-side>
