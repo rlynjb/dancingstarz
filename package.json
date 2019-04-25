@@ -1,8 +1,8 @@
 {
   "name": "dancingstarz",
   "version": "0.0.1",
-  "description": "A Quasar Framework app",
-  "productName": "Dancing Starz",
+  "description": "Dance Starz Cafe Las Vegas",
+  "productName": "Dancing Starz Cafe Las Vegas",
   "cordovaId": "org.cordova.quasar.app",
   "author": "rlynjb@gmail.com",
   "private": true,
