@@ -3,9 +3,12 @@
   <q-card class="q-mb-lg">
   	<q-card-main>
       <q-input type="text" v-model="header" stack-label="Header" />
-			<q-uploader :url="url" :upload-factory="uploadFile" auto-expand />
       <q-input type="textarea" rows="7" v-model="desc" stack-label="Desc" />
+      <q-uploader :url="url" :upload-factory="uploadFile" auto-expand />
+
+      <!--
       <q-btn color="primary" @click="addBanner">Add</q-btn>
+      -->
 		</q-card-main>
 	</q-card>
 
