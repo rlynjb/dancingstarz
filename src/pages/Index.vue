@@ -35,18 +35,18 @@
 				<section id="one" class="tiles masonry-layout">
 					<article v-for="(banner, index) in banners" :key="index"
 						class="masonry-layout-panel block-content">
-						<header class="major">
+						<header v-if="banner.header" class="major">
 							<h3 class="no-margin">
 								<b>&#9830;</b>
 								{{ banner.header }}
 							</h3>
 						</header>
 
-						<div class="image-container">
+						<div v-if="banner.url" class="image-container">
 							<img :src="banner.url" />
 						</div>
 
-						<p>
+						<p v-if="banner.desc">
 						{{ banner.desc }}
 						</p>
 					</article>
