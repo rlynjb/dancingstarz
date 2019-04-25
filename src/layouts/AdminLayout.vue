@@ -4,7 +4,6 @@
       <q-toolbar
         :inverted="$q.theme === 'ios'"
       >
-        <!--
         <q-btn
           flat
           dense
@@ -14,7 +13,6 @@
         >
           <q-icon name="menu" />
         </q-btn>
-        -->
 
         <q-toolbar-title class="text-center">
           Dashboard - Dancing Starz Cafe
@@ -32,14 +30,19 @@
         inset-delimiter
       >
         <q-list-header>Essential Links</q-list-header>
-        <q-item @click.native="openURL('http://quasar-framework.org')">
-          <q-item-side icon="school" />
-          <q-item-main label="Docs" sublabel="quasar-framework.org" />
+        <q-item @click.native="goToUrl('/')">
+          <q-item-side icon="photo" />
+          <q-item-main label="Website" sublabel="Go to website" />
         </q-item>
-        <q-item @click.native="openURL('https://github.com/quasarframework/')">
+        <q-item @click.native="goToUrl('/dashboard')">
+          <q-item-side icon="photo" />
+          <q-item-main label="Photos" sublabel="Add Photos in photo section" />
+        </q-item>
+        <q-item @click.native="goToUrl('/dashboard/banners')">
           <q-item-side icon="code" />
-          <q-item-main label="GitHub" sublabel="github.com/quasarframework" />
+          <q-item-main label="Banner" sublabel="Add Banner in Front page" />
         </q-item>
+        <!--
         <q-item @click.native="openURL('https://discord.gg/5TDhbDg')">
           <q-item-side icon="chat" />
           <q-item-main label="Discord Chat Channel" sublabel="https://discord.gg/5TDhbDg" />
@@ -52,6 +55,7 @@
           <q-item-side icon="rss feed" />
           <q-item-main label="Twitter" sublabel="@quasarframework" />
         </q-item>
+        -->
       </q-list>
     </q-layout-drawer>
 
@@ -72,7 +76,10 @@ export default {
     }
   },
   methods: {
-    openURL
+    goToUrl(url) {
+      console.log('hello', url)
+      this.$router.push({path: url})
+    }
   }
 }
 </script>

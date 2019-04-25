@@ -33,36 +33,22 @@
 
 				<!-- One -->
 				<section id="one" class="tiles masonry-layout">
-					<article class="masonry-layout-panel block-content">
+					<article v-for="(banner, index) in banners" :key="index"
+						class="masonry-layout-panel block-content">
 						<header class="major">
 							<h3 class="no-margin">
 								<b>&#9830;</b>
-								Highlight Event
+								{{ banner.header }}
 							</h3>
 						</header>
-						<highlight-events />
-					</article>
 
-					<article class="masonry-layout-panel block-content">
-						<header class="major">
-							<h3 class="no-margin">
-								<b>&#9830;</b>
-								Featuring
-							</h3>
-						</header>
-						<featured-band />
-					</article>
+						<div class="image-container">
+							<img :src="banner.url" />
+						</div>
 
-					<article class="masonry-layout-panel block-content">
-						<header class="major">
-							<h3 class="no-margin">
-								<a href="landing.html" class="link">
-									<b>&#9830;</b>
-									Everynight
-								</a>
-							</h3>
-						</header>
-						<featured-dj />
+						<p>
+						{{ banner.desc }}
+						</p>
 					</article>
 
 					<article class="masonry-layout-panel block-content">
@@ -84,25 +70,6 @@
 						</header>
 						<videos />
 					</article>
-
-					<article class="masonry-layout-panel block-content">
-						<header class="major">
-							<h3 class="no-margin">
-								<b>&#9830;</b>
-								Food
-							</h3>
-						</header>
-						<img class="foodmenu-img q-mb-lg" src="statics/foodmenu.png" />
-						<q-icon name="fab fa-yelp" class="q-mr-sm"/><a href="https://www.yelp.com/biz/bropards-las-vegas-2">View old menu</a>
-					</article>
-
-					<div class="masonry-layout-panel block-content">
-							<img src="statics/events/disnight.png" />
-					</div>
-
-					<div class="masonry-layout-panel block-content">
-							<img src="statics/events/special_events.png" />
-					</div>
 				</section>
 
 				<!-- Two -->
@@ -212,9 +179,6 @@
 <script>
 import photos from 'components/photos'
 import events from 'components/events'
-import highlightEvents from 'components/highlight_events'
-import featuredBand from 'components/featured_band'
-import featuredDj from 'components/featured_dj'
 import videos from 'components/videos'
 
 export default {
@@ -222,9 +186,6 @@ export default {
   components: {
   	photos,
   	events,
-  	highlightEvents,
-  	featuredBand,
-  	featuredDj,
   	videos,
   },
 
@@ -234,6 +195,12 @@ export default {
   			name: '',
   			email: '',
   		}
+  	}
+  },
+
+  computed: {
+  	banners() {
+  		return this.$store.state.banners
   	}
   }
 }

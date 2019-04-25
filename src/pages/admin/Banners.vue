@@ -2,22 +2,27 @@
 <q-page class="q-pa-lg">
   <q-card class="q-mb-lg">
   	<q-card-main>
+      <q-input type="text" v-model="header" stack-label="Header" />
 			<q-uploader :url="url" :upload-factory="uploadFile" auto-expand />
+      <q-input type="textarea" rows="7" v-model="desc" stack-label="Desc" />
+      <q-btn color="primary" @click="addBanner">Add</q-btn>
 		</q-card-main>
 	</q-card>
 
   <q-list class="row">
-  	<q-item class="col-sm-12 col-md-6" v-for="(photo, index) in photos" :key="index">
+  	<q-item class="col-sm-12 col-md-6" v-for="(banner, index) in banners" :key="index">
   		<q-item-side>
-  			<img :src="photo.url" />
+  			<img :src="banner.url" />
   		</q-item-side>
 
   		<q-item-main>
-  			<h6 class="block">{{ photo.filename }}</h6>	
+        <h4 class="no-margin">{{ banner.header }}</h4>
+  			<h6 class="no-margin">{{ banner.filename }}</h6>
+        <p class="no-margin">{{ banner.desc }}</p>
   		</q-item-main>
 
   		<q-item-side>
-				<q-btn @click="removePhoto(photo)">Remove</q-btn>
+				<q-btn @click="removePhoto(banner)">Remove</q-btn>
   		</q-item-side>
   	</q-item>
   </q-list>
@@ -33,13 +38,15 @@ export default {
 
   data() {
   	return {
+      header: '',
+      desc: '',
   		url: ''
   	}
   },
 
   computed: {
-  	photos() {
-  		return this.$store.state.photos
+  	banners() {
+  		return this.$store.state.banners
   	}
   },
 
@@ -48,9 +55,13 @@ export default {
   },
 
   methods: {
+    addBanner() {
+      console.log()
+    },
+
   	uploadFile (file, updateProgress) {
     	return new Promise((resolve, reject) => {
-    		storage.ref().child('webpics/' + file.name).put(file).on('state_changed', (snapshot) => {
+    		storage.ref().child('banners/' + file.name).put(file).on('state_changed', (snapshot) => {
     			let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
     			resolve(file)
 
@@ -60,18 +71,26 @@ export default {
 	    			// and push to store photos arr
 
 	    			// get photo url
-    				this.$store.dispatch('getPhotoUrl', file.name).then(url => {
+    				this.$store.dispatch('getBannerUrl', file.name).then(url => {
     					// create photo item in firestore
     					// and store filename and url
-		    			this.$store.dispatch('createPhotoItem', {
+		    			this.$store.dispatch('createBannerItem', {
 		    				filename: file.name,
-		    				url: url
+		    				url: url,
+                header: this.header,
+                desc: this.desc
 		    			}).then(res => {
 		    				// push to app photos arr
-		    				this.$store.commit('pushPhotosToState', {
+		    				this.$store.commit('pushBannersToState', {
 		    					filename: file.name,
-		    					url: url
+		    					url: url,
+                  header: this.header,
+                  desc: this.desc
 		    				})
+
+                // clear fields
+                this.header = ''
+                this.desc = ''
 		    			})
 
     				})
@@ -85,12 +104,12 @@ export default {
 
   	removePhoto(item) {
   		// delete in storage
-  		this.$store.dispatch('deletePhoto', item.filename).then(res => {
+  		this.$store.dispatch('deleteBanner', item.filename).then(res => {
   			// delete in firestore
   			// delete in app state
   			// console.log('hello', item.id)
-  			this.$store.dispatch('deletePhotoItem', item.id).then(res => {
-  				this.$store.commit('removePhotoFromState', item.filename)
+  			this.$store.dispatch('deleteBannerItem', item.id).then(res => {
+  				this.$store.commit('removeBannerFromState', item.filename)
   			})
   		})
   	},
