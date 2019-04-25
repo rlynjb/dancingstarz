@@ -93,7 +93,7 @@
 			<!-- Contact -->
 			<section id="contact">
 				<div class="inner row">
-					<section class="col-7 q-pa-xl">
+					<section class="col-xs-12 col-sm-12 col-md-7 q-pa-xl">
 						<h5>
 							<q-icon class="icon" name="comment" />
 							Contact
@@ -114,7 +114,7 @@
 						</div>
 					</section>
 
-					<section class="split col-5">
+					<section class="split col-xs-12 col-sm-12 col-md-5">
 						<section>
 							<div class="contact-method q-pa-xl">
 								<h5>
