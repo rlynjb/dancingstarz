@@ -35,6 +35,8 @@ export default {
     					// and store filename and url
               this.$q.notify({ message: 'Retrieving photo url complete', type: 'positive' })
 
+
+              // create item for local list
 		    			this.$store.dispatch(this.createFileItem, {
 		    				filename: file.name,
 		    				url: url
@@ -48,7 +50,8 @@ export default {
 
 								this.$q.notify({ message: 'Photo reference created complete', type: 'positive' })
 		    				this.$refs.quploaderRef.reset()
-		    			})
+		    			}) // end - list
+
             })// end - storage getDownloadURL()
 
     			}
@@ -60,7 +63,7 @@ export default {
 
   	removeFile(item) {
   		// delete in storage
-  		this.$store.dispatch(this.deleteFile, item.filename).then(res => {
+  		storage.ref().child(this.directory + '/' + item.filename).delete().then(res => {
         this.$q.notify({ message: 'Delete photo from storage complete', type: 'positive' })
   		}).catch(err => {
         this.$q.notify({ message: 'Fail to delete from storage', type: 'negative' })

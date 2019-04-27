@@ -63,10 +63,6 @@ const Store = new Vuex.Store({
   		let list = await firestore.collection('photos').get()
       return list
   	},
-    async deletePhoto({commit, store}, filename){
-      let res = await storage.ref().child('webpics/' + filename).delete()
-      return res
-    },
 
     // Banners endpoint
     async createBannerItem({commit, store}, arg) {
@@ -81,10 +77,6 @@ const Store = new Vuex.Store({
       let res = await firestore.collection('banners').get()
       return res
     },
-    async deleteBanner({commit, store}, filename) {
-      let res = await storage.ref().child('banners/' + filename).delete()
-      return res
-    }
   }
 })
 

@@ -60,10 +60,15 @@ export default {
 	    			// add photo to firestore with id, filename, url
 	    			// and push to store photos arr
 
+            this.$q.notify({ message: 'Upload complete', type: 'positive' })
+
 	    			// get photo url
     				storage.ref().child('banners/' + file.name).getDownloadURL().then(url => {
     					// create photo item in firestore
     					// and store filename and url
+              this.$q.notify({ message: 'Retrieving photo url complete', type: 'positive' })
+
+
 		    			this.$store.dispatch('createBannerItem', {
 		    				filename: file.name,
 		    				url: url,
@@ -78,6 +83,8 @@ export default {
                   header: this.header,
                   desc: this.desc
 		    				})
+
+                this.$q.notify({ message: 'Photo reference created complete', type: 'positive' })
 
                 // clear fields
                 this.header = ''
@@ -96,7 +103,7 @@ export default {
 
   	removePhoto(item) {
       // delete in storage
-      this.$store.dispatch('deleteBanner', item.filename).then(res => {
+      storage.ref().child('banners/' + item.filename).delete().then(res => {
         this.$q.notify({ message: 'Delete photo from storage complete', type: 'positive' })
       }).catch(err => {
         this.$q.notify({ message: 'Fail to delete from storage', type: 'negative' })
