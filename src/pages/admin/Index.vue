@@ -1,5 +1,6 @@
 <template>
 <q-page class="q-pa-lg">
+  <h4 class="q-mt-none">Photos</h4>
   <q-card class="q-mb-lg">
   	<q-card-main>
 			<q-uploader multiple :url="url" :upload-factory="uploadFile" auto-expand />

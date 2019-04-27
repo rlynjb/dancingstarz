@@ -1,5 +1,6 @@
 <template>
 <q-page class="q-pa-lg">
+  <h4 class="q-mt-none">Banners</h4>
   <q-card class="q-mb-lg">
   	<q-card-main>
       <q-input type="text" v-model="header" stack-label="Header" />
