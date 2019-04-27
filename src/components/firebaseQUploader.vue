@@ -1,5 +1,5 @@
 <template>
-	<q-uploader multiple :url="url" :upload-factory="uploadFile" auto-expand />
+	<q-uploader ref="quploaderRef" :url="url" :upload-factory="uploadFile" auto-expand clearable />
 </template>
 
 <script>
@@ -40,13 +40,14 @@ export default {
 		    				url: url
 		    			}).then(res => {
 		    				// push to app photos arr
-                this.$q.notify({ message: 'Photo reference created complete', type: 'positive' })
-
 		    				this.$store.commit(this.pushFilesToState, {
 		    					id: res.id,
 		    					filename: file.name,
 		    					url: url
 		    				})
+
+								this.$q.notify({ message: 'Photo reference created complete', type: 'positive' })
+		    				this.$refs.quploaderRef.reset()
 		    			})
             })// end - storage getDownloadURL()
 

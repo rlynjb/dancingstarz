@@ -5,7 +5,7 @@
   	<q-card-main>
       <q-input type="text" v-model="header" stack-label="Header" />
       <q-input type="textarea" rows="7" v-model="desc" stack-label="Desc" />
-      <q-uploader multiple :url="url" :upload-factory="uploadFile" auto-expand />
+      <q-uploader ref="quploaderRef" :url="url" :upload-factory="uploadFile" auto-expand clearable />
 
 		</q-card-main>
 	</q-card>
@@ -61,7 +61,7 @@ export default {
 	    			// and push to store photos arr
 
 	    			// get photo url
-    				storage.ref().child('banners/' + filename).getDownloadURL().then(url => {
+    				storage.ref().child('banners/' + file.name).getDownloadURL().then(url => {
     					// create photo item in firestore
     					// and store filename and url
 		    			this.$store.dispatch('createBannerItem', {
@@ -70,6 +70,7 @@ export default {
                 header: this.header,
                 desc: this.desc
 		    			}).then(res => {
+
 		    				// push to app photos arr
 		    				this.$store.commit('pushBannersToState', {
 		    					filename: file.name,
@@ -81,6 +82,7 @@ export default {
                 // clear fields
                 this.header = ''
                 this.desc = ''
+                this.$refs.quploaderRef.reset()
 		    			})
 
     				})
