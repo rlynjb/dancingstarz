@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { storage, firestore } from 'plugins/firebase'
+import { storage } from 'plugins/firebase'
 
 
 export default {

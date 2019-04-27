@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { storage, firestore } from 'plugins/firebase'
+import { storage } from 'plugins/firebase'
 
 export default {
 	props: [
@@ -36,6 +36,12 @@ export default {
               this.$q.notify({ message: 'Retrieving photo url complete', type: 'positive' })
 
 
+              /*
+								NOTE:
+								we can probably move this chunk of code outside of this component
+								and move it to the parent component
+								since this is involves vuex store dispatch
+              */
               // create item for local list
 		    			this.$store.dispatch(this.createFileItem, {
 		    				filename: file.name,
@@ -69,6 +75,13 @@ export default {
         this.$q.notify({ message: 'Fail to delete from storage', type: 'negative' })
       })
 
+
+      /*
+				NOTE:
+				we can probably move this chunk of code outside of this component
+				and move it to the parent component
+				since this is involves vuex store dispatch
+      */
       // delete in firestore
       this.$store.dispatch(this.deleteFileItem, item.id).then(res => {
         this.$q.notify({ message: 'Delete from database complete', type: 'positive' })
