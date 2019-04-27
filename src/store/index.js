@@ -20,6 +20,7 @@ const Store = new Vuex.Store({
   getters: {},
 
   mutations: {
+    // Photos
   	pushPhotosToState(state, {id, url, filename}) {
   		state.photos.push({
         id,
@@ -62,14 +63,6 @@ const Store = new Vuex.Store({
   		let list = await firestore.collection('photos').get()
       return list
   	},
-
-		async getPhotoUrl({commit, store}, filename) {
-			let url  = await storage.ref().child('webpics/' + filename).getDownloadURL()
-	  	return url
-		},
-    async uploadPhoto({commit, store}, file){
-      //
-    },
     async deletePhoto({commit, store}, filename){
       let res = await storage.ref().child('webpics/' + filename).delete()
       return res
@@ -87,14 +80,6 @@ const Store = new Vuex.Store({
     async getBannerList({commit, store}) {
       let res = await firestore.collection('banners').get()
       return res
-    },
-
-    async getBannerUrl({commit, store}, filename) {
-      let res = await storage.ref().child('banners/' + filename).getDownloadURL()
-      return res
-    },
-    async uploadBanner({commit, store}, file) {
-      //
     },
     async deleteBanner({commit, store}, filename) {
       let res = await storage.ref().child('banners/' + filename).delete()

@@ -36,7 +36,6 @@ import { storage, firestore } from 'plugins/firebase'
 
 export default {
   name: 'AdminIndex',
-
   data() {
   	return {
       header: '',
@@ -46,20 +45,10 @@ export default {
   },
 
   computed: {
-  	banners() {
-  		return this.$store.state.banners
-  	}
-  },
-
-  mounted() {
-  	//console.log(this.$store.state.photos)
+  	banners() { return this.$store.state.banners }
   },
 
   methods: {
-    addBanner() {
-      console.log()
-    },
-
   	uploadFile (file, updateProgress) {
     	return new Promise((resolve, reject) => {
     		storage.ref().child('banners/' + file.name).put(file).on('state_changed', (snapshot) => {
@@ -72,7 +61,7 @@ export default {
 	    			// and push to store photos arr
 
 	    			// get photo url
-    				this.$store.dispatch('getBannerUrl', file.name).then(url => {
+    				storage.ref().child('banners/' + filename).getDownloadURL().then(url => {
     					// create photo item in firestore
     					// and store filename and url
 		    			this.$store.dispatch('createBannerItem', {
@@ -104,15 +93,22 @@ export default {
   	},
 
   	removePhoto(item) {
-  		// delete in storage
-  		this.$store.dispatch('deleteBanner', item.filename).then(res => {
-  			// delete in firestore
-  			// delete in app state
-  			// console.log('hello', item.id)
-  			this.$store.dispatch('deleteBannerItem', item.id).then(res => {
-  				this.$store.commit('removeBannerFromState', item.filename)
-  			})
-  		})
+      // delete in storage
+      this.$store.dispatch('deleteBanner', item.filename).then(res => {
+        this.$q.notify({ message: 'Delete photo from storage complete', type: 'positive' })
+      }).catch(err => {
+        this.$q.notify({ message: 'Fail to delete from storage', type: 'negative' })
+      })
+
+      // delete in firestore
+      this.$store.dispatch('deleteBannerItem', item.id).then(res => {
+        this.$q.notify({ message: 'Delete from database complete', type: 'positive' })
+      }).catch(err => {
+        this.$q.notify({ message: 'Fail to delete from database', type: 'negative' })
+      })
+
+      // delete in app state
+      this.$store.commit('removeBannerFromState', item.filename)
   	},
   }
 }
