@@ -2,7 +2,7 @@
 <q-page class="q-pa-lg">
   <q-card class="q-mb-lg">
   	<q-card-main>
-			<q-uploader :url="url" :upload-factory="uploadFile" auto-expand />
+			<q-uploader multiple :url="url" :upload-factory="uploadFile" auto-expand />
 		</q-card-main>
 	</q-card>
 
@@ -59,15 +59,21 @@ export default {
 	    			// add photo to firestore with id, filename, url
 	    			// and push to store photos arr
 
+            this.$q.notify({ message: 'Upload complete', type: 'positive' })
+
 	    			// get photo url
     				this.$store.dispatch('getPhotoUrl', file.name).then(url => {
     					// create photo item in firestore
     					// and store filename and url
+              this.$q.notify({ message: 'Retrieving photo url complete', type: 'positive' })
+
 		    			this.$store.dispatch('createPhotoItem', {
 		    				filename: file.name,
 		    				url: url
 		    			}).then(res => {
 		    				// push to app photos arr
+                this.$q.notify({ message: 'Photo reference created complete', type: 'positive' })
+
 		    				this.$store.commit('pushPhotosToState', {
 		    					filename: file.name,
 		    					url: url
@@ -89,10 +95,18 @@ export default {
   			// delete in firestore
   			// delete in app state
   			// console.log('hello', item.id)
+        this.$q.notify({ message: 'Delete photo from storage complete', type: 'positive' })
+
   			this.$store.dispatch('deletePhotoItem', item.id).then(res => {
+          this.$q.notify({ message: 'Delete from database complete', type: 'positive' })
+
   				this.$store.commit('removePhotoFromState', item.filename)
-  			})
-  		})
+  			}).catch(err => {
+          this.$q.notify({ message: 'Fail to delete from database', type: 'negative' })
+        })
+  		}).catch(err => {
+        this.$q.notify({ message: 'Fail to delete from storage', type: 'negative' })
+      })
   	},
   }
 }
