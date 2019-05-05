@@ -93,6 +93,7 @@
 			<!-- Contact -->
 			<section id="contact">
 				<div class="inner row">
+					<!--
 					<section class="col-xs-12 col-sm-12 col-md-7 q-pa-xl">
 						<h5>
 							<q-icon class="icon" name="comment" />
@@ -113,15 +114,16 @@
 							</div>
 						</div>
 					</section>
+					-->
 
-					<section class="split col-xs-12 col-sm-12 col-md-5">
+					<section class="split col-xs-12 col-sm-12 col-md-12">
 						<section>
 							<div class="contact-method q-pa-xl">
 								<h5>
 									<span class="icon alt fas fa-envelope"></span>
 									Email
 								</h5>
-								<a href="#">dancestarzcafe@gmail.com</a>
+								<a href="mailto:dancestarzcafe@gmail.com">dancestarzcafe@gmail.com</a>
 							</div>
 						</section>
 						<section>
@@ -130,7 +132,7 @@
 									<span class="icon alt fas fa-phone"></span>
 									Phone
 								</h5>
-								<span>(702) 592-4785</span>
+								<span><a href="tel:7025924785">(702) 592-4785</a></span>
 							</div>
 						</section>
 						<section>
@@ -156,7 +158,8 @@
 							target="_blank" class="icon alt fab fa-yelp">
 							<span class="label"></span>
 						</a>
-						<a href="#" class="icon alt fab fa-facebook"><span class="label"></span></a>
+						<a href="https://www.facebook.com/dancestarzcafe" target="_blank"
+							class="icon alt fab fa-facebook"><span class="label"></span></a>
 						<!--
 						<a href="#" class="icon alt fab fa-instagram"><span class="label"></span></a>
 						-->
