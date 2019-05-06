@@ -45,6 +45,12 @@ const routes = [
       {
         path: '', component: () => import('pages/admin/Index.vue'),
         beforeEnter(to, from, next) {
+          if (store.state.auth === false) {
+            // redirect to login page
+            console.log(next('login'))
+            return
+          }
+
           // get photo list
           store.dispatch('getPhotoList').then(res => {
             res.forEach(v => {
@@ -79,6 +85,11 @@ const routes = [
         }
       }
     ]
+  },
+
+  {
+    path: '/login',
+    component: () => import('layouts/LoginLayout.vue'),
   },
 ]
 

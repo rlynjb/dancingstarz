@@ -15,11 +15,20 @@ Vue.use(Vuex)
 const Store = new Vuex.Store({
   state: {
   	photos: [],
-    banners: []
+    banners: [],
+    login: {
+      email: 'dancestarzcafe@gmail.com',
+      password: 'dance@123'
+    },
+    auth: false,
   },
   getters: {},
 
   mutations: {
+    setAuth(state, val) {
+      state.auth = val
+    },
+
     // Photos
   	pushPhotosToState(state, {id, url, filename}) {
   		state.photos.push({
